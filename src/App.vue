@@ -1,34 +1,32 @@
 <script setup>
 import { ref } from 'vue'
 import UI from './components/UI.vue'
-import InvestmentCard from './components/InvestmentCard.vue'
 import SideBar from './components/SideBar.vue'
+import AddInvestmentModal from './components/AddInvestmentModal.vue'
 
-const count = ref(3)        //ref is a live var so when count changes, vue redoes html using count
+const showModal = ref(false)
+const investments = ref([
+  { name: 'AAPL', price: '180.00', change: '+2.3%' },
+  { name: 'TSLA', price: '240.50', change: '-1.1%' }
+])
+
+const addNewItem = (item) => {
+  investments.value.push(item)
+  showModal.value = false
+}
 </script>
 
-<template> 
-  <UI @add="count++"/>
+<template>
+  <UI @add="showModal = true" />
   
   <div class="container">
-    <SideBar/>
-    <div class="cards-wrapper">
-      <InvestmentCard v-for="n in count" :key="n" />        <!-- for n times in count, have investment card that n times -->
-    </div>
+    <SideBar />
+    <router-view :investments="investments" />    <!-- where pages appear -->
   </div>
+
+  <AddInvestmentModal 
+    v-if="showModal" 
+    @close="showModal = false" 
+    @save="addNewItem" 
+  />
 </template>
-
-<style scoped>
-  .container {
-    display: flex;
-    gap: 20px;
-    padding: 20px;
-  }
-
-  .cards-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    flex: 1;
-  }
-</style>

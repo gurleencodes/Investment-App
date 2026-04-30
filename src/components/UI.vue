@@ -6,10 +6,12 @@ const emit = defineEmits(['add'])
   <header>
     <div class="title">
         <h1>Portfolio Overview</h1>
+        <span class="subtitle">Overview</span>
     </div>
 
 
-    <button @click="emit('add')">+ Add Investment </button>  <!-- when button clicked, the header emits/signals to app.vue   --> 
+    <button @click="emit('add')">+ Add Investment </button>  <!-- when button clicked, the header emits/signals to app.vue   -->
+     
   </header>
 </template>
 

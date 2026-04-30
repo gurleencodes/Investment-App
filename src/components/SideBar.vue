@@ -3,11 +3,11 @@
 
 <template>
   <div class="side-bar">
-    <button>Overview</button>
-    <button>Stocks</button>
-    <button>Crypto</button>
-    <button>Real Estate</button>
-    <button>Commodities</button>
+    <router-link to="/"> Home </router-link>
+    <router-link to="/stocks"> Stocks </router-link>
+    <router-link to="/crypto">Crypto</router-link>
+    <router-link to="/real-estate">Real Estate</router-link>
+    <router-link to="/commodities">Commodities</router-link>
   </div>
 </template>
 
@@ -24,7 +24,7 @@
     border: 1px solid #e5e7eb;
 }
 
-button {
+a{
     padding: 8px 14px;
     font-size: 14px;
     font-family: Geneva;
@@ -37,7 +37,7 @@ button {
     transition: background 0.2s ease;
 }
 
-button:hover {
+a:hover {
     background-color: #f3f4f6;
 }
 </style>

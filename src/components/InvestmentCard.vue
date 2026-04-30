@@ -1,25 +1,13 @@
-
 <script setup>
+defineProps(['data'])
 </script>
 
 <template>
   <div class="card">
-    <h3>AAPL</h3>
-    <p>$180.00</p>
-    <p class="positive"> +2.3% </p>
+    <h3>{{ data.name }}</h3>
+    <p>${{ data.price }}</p>
+    <p :class="data.change.includes('+') ? 'positive' : 'negative'">
+      {{ data.change }}
+    </p>
   </div>
 </template>
-
-<style scoped>
-  .card {
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    width: 150px;
-  }
-
-  .positive {
-    color: green;
-  }
-
-</style>
