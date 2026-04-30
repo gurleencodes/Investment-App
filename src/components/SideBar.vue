@@ -35,6 +35,7 @@ a{
     cursor: pointer;
     text-align: left;
     transition: background 0.2s ease;
+    text-decoration: none; /* removes underline */
 }
 
 a:hover {
