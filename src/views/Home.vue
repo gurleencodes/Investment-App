@@ -1,5 +1,5 @@
 <script setup>
-import InvestmentCard from './components/InvestmentCard.vue'
+import InvestmentCard from '../components/InvestmentCard.vue'
 defineProps(['investments'])
 </script>
 

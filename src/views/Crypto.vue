@@ -4,7 +4,7 @@
 
 <template>
     <div class="page">
-        <h2>Crypto Page</h2>
+        <h2>Cryptocurrency</h2>
     </div>
 </template>
 

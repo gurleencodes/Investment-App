@@ -3,6 +3,6 @@
 
 <template>
   <div class="page">
-    <h2>Stocks Page</h2>
+    <h2>Commodities</h2>
   </div>
 </template>
