@@ -5,7 +5,7 @@ const emit = defineEmits(['add'])
 <template> 
   <header>
     <div class="title">
-        <h1>Portfolio</h1>
+        <h1>Investment Portfolio</h1>
         <span class="subtitle">Overview</span>
     </div>
 
@@ -19,9 +19,10 @@ const emit = defineEmits(['add'])
 header {
   display: flex;
   justify-content: space-between;
-  padding: 10px 10px;
+  padding: 60px 40px 40px 40px;
   background: white;
   border-bottom: 1px solid #e5e7eb;
+
 }
 
 h1 {
@@ -53,7 +54,7 @@ button{
 .subtitle {
   font-size: 18px;
   font-weight: 600;
-  color: #61afbd;
+  color: #8ce5edff;
 }
 
 button:hover {

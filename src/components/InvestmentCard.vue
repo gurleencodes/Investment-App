@@ -2,10 +2,10 @@
 defineProps(['data'])
 </script>
 
-<template>  <-- recieves data via props -->
+<template> 
   <div class="card">
     <h3>{{ data.name }}</h3>
-    <p>${{ data.price }}</p>
+    <p class="price">${{ data.price }}</p>
     <p :class="data.change.includes('+') ? 'positive' : 'negative'">
       {{ data.change }}
     </p>
@@ -16,47 +16,39 @@ defineProps(['data'])
 .card {
   background: white;
   border-radius: 16px;
-  gap: 30px;
   padding: 16px;
-
+  font-family: 'Geneva', Tahoma, sans-serif;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-
   transition: all 0.2s ease;
-
-  width: 180px;
-}
-
-/* hover effect */
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+  width: calc(50% - 12px); 
 }
 
 h3 {
   margin: 0;
   font-size: 16px;
   font-weight: 600;
+  font-family: inherit;
+}
+
+.price {
+  margin: 6px 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  font-family: inherit;
 }
 
 p {
-  margin: 6px 0;
-  font-size: 14px;
+  font-family: inherit;
 }
 
-/* price */
-p:nth-of-type(1) {
-  font-weight: 500;
-  color: #333;
-}
-
-/* positive / negative colors */
 .positive {
-  color: #16a34a;
+  color: #349c5cff;
   font-weight: 600;
 }
 
 .negative {
-  color: #dc2626;
+  color: #b44545ff;
   font-weight: 600;
 }
 </style>

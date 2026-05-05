@@ -13,13 +13,13 @@
 
 <style scoped>
 .side-bar {
-    width: 200px; 
+    width: 100px; 
     flex-shrink: 0; 
     display: flex;
     flex-direction: column;
     gap: 25px;
     background: white;
-    padding: 30px;
+    padding: 20px;
     border-radius: 10px;
     border: 1px solid #e5e7eb;
 }

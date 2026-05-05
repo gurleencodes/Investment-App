@@ -1,20 +1,21 @@
 <script setup>
+import { computed } from 'vue'
 import InvestmentCard from '../components/InvestmentCard.vue'
 
-const investments = [
-  { name: 'Gold', price: 1900, change: '+0.5%' },
-  { name: 'Silver', price: 25, change: '-0.8%' },
-  { name: 'Oil', price: 70, change: '+1.3%' }
-]
+const props = defineProps(['investments'])
+
+// Filters the master list for 'commodities' items
+const commodityItems = computed(() => {
+  return props.investments.filter(item => item.category === 'commodities')
+})
 </script>
 
 <template>
   <div class="page">
     <h2>Commodities</h2>
-
     <div class="cards-wrapper">
       <InvestmentCard 
-        v-for="(item, index) in investments" 
+        v-for="(item, index) in commodityItems" 
         :key="index" 
         :data="item" 
       />
@@ -27,5 +28,11 @@ const investments = [
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+}
+
+.page {
+  font-family: 'Geneva', Tahoma, sans-serif;
+  width: 100%;
+  padding: 50px 30px 50px 30px;
 }
 </style>
