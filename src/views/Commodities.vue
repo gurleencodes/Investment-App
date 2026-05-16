@@ -3,10 +3,12 @@ import { computed } from 'vue'
 import InvestmentCard from '../components/InvestmentCard.vue'
 
 const props = defineProps(['investments'])
+defineEmits(['edit', 'delete'])
 
-// Filters the master list for 'commodities' items
 const commodityItems = computed(() => {
-  return props.investments.filter(item => item.category === 'commodities')
+  return props.investments.filter(item => {
+    return item.category === 'commodities'
+  })
 })
 </script>
 
@@ -14,25 +16,32 @@ const commodityItems = computed(() => {
   <div class="page">
     <h2>Commodities</h2>
     <div class="cards-wrapper">
-      <InvestmentCard 
-        v-for="(item, index) in commodityItems" 
-        :key="index" 
-        :data="item" 
+      <InvestmentCard
+        v-for="item in commodityItems"
+        :key="item.id"
+        :data="item"
+        @edit="$emit('edit', item)"
+        @delete="$emit('delete', item.id)"
       />
     </div>
   </div>
 </template>
 
 <style scoped>
-.cards-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
 .page {
   font-family: 'Geneva', Tahoma, sans-serif;
   width: 100%;
   padding: 50px 30px 50px 30px;
+}
+
+h2 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.cards-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 </style>

@@ -1,19 +1,20 @@
 <script setup>
 import InvestmentCard from '../components/InvestmentCard.vue'
 
-// receiving the full list of investments from App.vue as a prop
-const props = defineProps(['investments'])
+defineProps(['investments'])
+defineEmits(['edit', 'delete'])
 </script>
 
 <template>
   <div class="page">
     <h2>Portfolio Overview</h2>
-    
     <div class="cards-wrapper">
-      <InvestmentCard 
-        v-for="(item, index) in investments" 
-        :key="index" 
-        :data="item" 
+      <InvestmentCard
+        v-for="item in investments"
+        :key="item.id"
+        :data="item"
+        @edit="$emit('edit', item)"
+        @delete="$emit('delete', item.id)"
       />
     </div>
   </div>
@@ -21,14 +22,12 @@ const props = defineProps(['investments'])
 
 <style scoped>
 .page {
-  /* updated this to match Sidebar font */
   font-family: 'Geneva', Tahoma, sans-serif;
   width: 100%;
   padding: 50px 30px 50px 30px;
 }
 
 h2 {
-  font-family: inherit;
   color: #333;
   margin-bottom: 20px;
 }
@@ -39,7 +38,6 @@ h2 {
   gap: 12px;
 }
 
-/* This helps the page look better on iPhone */
 @media (max-width: 600px) {
   .cards-wrapper {
     justify-content: center;

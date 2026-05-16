@@ -34,7 +34,7 @@ h1 {
 }
 
 button{
-  padding: 12px 20px; /* fix spacing */
+  padding: 10px 20px; /* fix spacing */
   background-color: #61afbd;
   color: white;
 
@@ -60,5 +60,7 @@ button{
 button:hover {
   background-color: #2e7585ff;
   box-shadow: 0 6px 12px rgba(8, 29, 33, 0.4);
+  transform: translateY(-5px); 
+  transition-delay: 0.1s;
 }
 </style>
